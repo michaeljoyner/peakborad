@@ -15,6 +15,64 @@ theme: minima
 plugins:
   - jekyll-feed
 
+collections:
+  tutorials:
+    output: true
+    icon: question.svg
+    position: 1
+    title:
+      en: Tutorials
+      de: Tutorials
+
+  data_sources:
+    output: true
+    icon: database.svg
+    position: 2
+    title:
+      en: "Data sources"
+      de: "Dataquellen"
+
+  controls:
+    output: true
+    icon: parameters-v.svg
+    position: 3
+    title:
+      en: "Controls"
+      de: "Controls"
+
+  misc:
+    output: true
+    icon: plus-c.svg
+    position: 4
+    title:
+      en: "Misc"
+      de: "Misc"
+
+  administration:
+    output: true
+    icon: id-card.svg
+    position: 5
+    title:
+      en: "Administration"
+      de: "Administration"
+
+  scripting:
+    output: true
+    icon: browser.svg
+    position: 6
+    title:
+      en: "Scripting"
+      de: "Scripting"
+
+  peakboardio:
+    output: true
+    icon: star.svg
+    position: 7
+    title:
+      en: "Peakboard.io"
+      de: "Peakboard.io"
+
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.

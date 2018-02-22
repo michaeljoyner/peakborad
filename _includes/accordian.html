@@ -1,0 +1,56 @@
+{% assign collections = site.collections | sort: 'position' %} {% for collection in collections %} {% if collection.label
+!= "posts" %}
+
+<div class="px-4 hover:bg-white hover:text-black">
+    <input type="checkbox" name="accordian_radio" id="{{ collection.label }}" class="accordian-trigger hidden">
+    <label for="{{ collection.label }}" class="py-3 pr-8 h-12 flex justify-between items-center border-b border-grey-light w-full accordian-label text-grey-dark">
+        <div class="flex items-center">
+            {% include {{ collection.icon }} %}
+            <span class="ml-4 capitalize">{{ collection.title[page.lang] }}</span>
+        </div>
+        <div class="accordian-icon text-2xl flex justify-center items-center">+</div>
+    </label>
+
+    {% assign used_categories = "" | split: "" %} {% assign articles=site[collection.label] | where:"lang",page.lang %}
+
+    <ul class="accordian-inner border-b border-grey-light bg-white list-reset px-4 w-full">
+
+        {% for article in articles %} {% assign parts = article.path | split: "/" %} {% assign num_parts = article.path | split:
+        "/" | size %} {% if num_parts == 2 %}
+
+        <li>
+            <a class="w-full block py-2 hover:text-orange text-grey-dark no-underline" href="{{ article.url | relative_url }}">
+                {{ article.title | escape }}
+            </a>
+        </li>
+
+        {% else %} {% assign sub_level = parts[1] %} {% assign matched = used_categories | where_exp:"item", "item == sub_level"
+        | size %} {% if matched == 0 %} {% assign all_articles = site[collection.label] | where: "lang", page.lang %}
+
+        <li>
+            <p class="py-2 font-black bg-grey-lighter text-grey-dark">
+                {{ sub_level | replace: "_", " " | capitalize }}
+            </p>
+            <ul class="sub_level_list list-reset pl-4">
+
+                {% for art in all_articles %} {% assign parts = art.path | split: "/" %} {% assign num_parts = art.path | split: "/" | size
+                %} {% if num_parts == 3 and parts[1] == sub_level %}
+
+                <li>
+                    <a class="w-full block py-2 hover:text-orange text-grey-dark no-underline" href="{{ tutorial.url | relative_url }}">
+                        {{ art.title | escape }}
+                    </a>
+                </li>
+
+                {% endif %} {% endfor %}
+
+            </ul>
+        </li>
+
+        {% assign used_categories = used_categories | push: sub_level %} {% endif %} {% endif %} {% endfor %}
+
+    </ul>
+
+</div>
+
+{% endif %} {% endfor %}

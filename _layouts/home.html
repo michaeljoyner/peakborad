@@ -1,43 +1,19 @@
---- 
+---
 layout: base
 ---
 
-<div class="flex h-24"> 
-    <div class="w-64 text-4xl font-black bg-orange-light text-black">
-    peak<br>board
+<div class="flex h-24">
+    <div class="w-48 flex justify-center items-center bg-orange-light">
+        <img src="/assets/logos/logo.svg" class="w-4/5">
     </div>
     <div class="flex-auto">
         <div class="flex items-center justify-end bg-black text-white h-12">
-            <span class="mx-2">
-                <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                    <path d="M0 0h24v24H0z" fill="none"/>
-                </svg>
-            </span>
-            <span class="mx-2">
-                <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
-                </svg>
-            </span>
-            <span class="text-grey-light mr-4">
-                {% if page.lang == "en" %}
-                <span class="text-orange-light">EN</span> / <a href="{{ '/de/' | relative_url }}" class="no-underline text-grey">DE</a>  
-                {% endif %}
-                {% if page.lang != "en" %}
-                <span class="text-orange-light">DE</span> / <a href="{{ '/' | relative_url }}" class="no-underline text-grey">EN</a>  
-                {% endif %}
-            </span>
+            {% include top_nav_actions.html %}
+            {% include home_lang_selector.html %}
         </div>
         <div class="flex items-center bg-grey-dark text-white h-12">
-            <span class="mx-2">Video Tutorials</span>
-            <span class="mx-2">Tutorials</span>
-            <span class="mx-2">Data Sources</span>
-            <span class="mx-2">Controls</span>
-            <span class="mx-2">Misc.</span>
-            <span class="mx-2">Administration</span>
-            <span class="mx-2">Scripting</span>
-            <span class="mx-2">Peakboard.io</span>
+            <span class="mx-2 font-light">Video Tutorials</span>
+            {% include menu_bar.html %}
         </div>
     </div>
 </div>
@@ -48,4 +24,7 @@ layout: base
     <p class="my-3">For technical problems contact technical support:</p>
     <p class="my-3 text-orange font-bold">Support-System</p>
     <p class="my-3 text-orange font-bold">support@peakboard.com</p>
+</section>
+<section>
+    {% include accordian.html %}
 </section>

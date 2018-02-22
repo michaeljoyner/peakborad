@@ -1,0 +1,8 @@
+<div class="text-grey-light mx-4 flex items-center">
+    {% assign posts = site[page.collection] | where: "ref", page.ref | where_exp: "item", "item.lang != page.lang" %}
+    <span class="text-orange-light uppercase mr-2">{{ page.lang }}</span>
+    {% for post in posts %}
+        /
+        <a href="{{ post.url }}" class="no-underline uppercase text-grey ml-2">{{ post.lang }}</a>    
+    {% endfor %}
+</div>

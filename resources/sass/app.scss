@@ -1,7 +1,15 @@
 @tailwind preflight;
 
+@import "typography";
+
 @tailwind utilities;
 
 svg {
   fill: currentColor;
 }
+
+@import "top_menu";
+@import "accordian";
+@import "article_content";
+@import "syntax_hightlighting.scss";
+@import "lightbox";

@@ -1,0 +1,65 @@
+.pk-lightbox {
+  &.open {
+    display: block;
+  }
+
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+
+  img.gallery-image {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    max-width: 80vw;
+    max-height: 90vh;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+
+    &.selected {
+      display: block;
+    }
+  }
+
+  .close-lightbox {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    cursor: default;
+
+    &:hover {
+      color: orange;
+    }
+  }
+
+  .lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-weight: 900;
+    font-size: 3rem;
+
+    &:hover {
+      color: orange;
+    }
+
+    &.prev {
+      left: 10px;
+    }
+
+    &.next {
+      right: 10px;
+    }
+  }
+}

@@ -20,9 +20,29 @@ mix
   })
   .purgeCss({
     globs: [
-      path.join(__dirname, "assets/**/*"),
-      path.join(__dirname, "layouts/**/*"),
-      path.join(__dirname, "includes/**/*")
+      path.join(__dirname, "_layouts/*"),
+      path.join(__dirname, "_includes/*.html")
     ],
-    extensions: ["html", "js", "md", "vue"]
+    extensions: ["html", "js", "md", "vue"],
+    whitelistPatterns: [
+      /^\.article-content.*/,
+      /blockquote$/,
+      /img$/,
+      /pre$/,
+      /code$/,
+      /language-.*/,
+      /^\.token/,
+      /.*token.*/,
+      /.*string.*/,
+      /.*function.*/,
+      /.*symbol.*/,
+      /.*punctuation.*/,
+      /.*operator.*/,
+      /.*constant.*/,
+      /.*number.*/,
+      /.*keyword.*/,
+      /pk-lightbox/,
+      /lightbox/
+    ],
+    fontFace: false
   });
