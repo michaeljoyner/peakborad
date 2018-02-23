@@ -10,8 +10,15 @@ Die OPC-UA-Datenquelle reiht sich nahtlos in die Reihe von Datenquellen zur Masc
 
 Ist das Dashboard einmal gestartet, finden Sie den generischen Server als Eintrag „Generic Server“ auf der linken Seite. Er kann dort direkt gestartet werden. Das ist natürlich nur für einen Test „im Trockenen“ nötig. Falls Sie einen echten OPC-UA-Server in Ihrem Netzwerk haben, können Sie auch diesen für die ersten Schritte nehmen. Idealerweise sind Sie dafür aber sowohl mit OPC UA im Allgemeinen als auch mit Ihrem OPC-Server im Speziellen entsprechend vertraut.
 
+> ##### This is your four-minute warning
+>
 > Once there was a man from Turlte
 > Who liked to play in the woods
+
+<blockquote class="success">
+	<h5>Beware the danger of ...</h5>
+	<p>Geben Sie zum Start die URL ein, unter der der Server erreichbar ist. Je nach genutztem Protokoll kann diese URL vom hier gezeigten Beispiel abweichen.</p>
+</blockquote>
 
 Geben Sie zum Start die URL ein, unter der der Server erreichbar ist. Je nach genutztem Protokoll kann diese URL vom hier gezeigten Beispiel abweichen. Ein Klick auf „Get Endpoints“ füllt die darunterliegende Auswahlbox mit allen möglichen Zugangsarten, die der Server unterstützt. Dabei geht es insbesondere um die Frage, wie die spätere Übertragung authentifiziert und/oder verschlüsselt werden soll. Im Beispiel wird eine Kommunikationsart ausgewählt, die den Datenverkehr mit einem Zertifikat signiert und verschlüsselt. Außerdem wird der Dateninhalt binär übertragen, was im Gegensatz zu XML etwas performanter ist und das Netzwerk wegen des geringeren Durchsatzes schont.
 

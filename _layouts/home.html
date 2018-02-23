@@ -2,23 +2,10 @@
 layout: base
 ---
 
-<div class="flex h-24">
-    <div class="w-48 flex justify-center items-center bg-orange-light">
-        <img src="/assets/logos/logo.svg" class="w-4/5">
-    </div>
-    <div class="flex-auto">
-        <div class="flex items-center justify-end bg-black text-white h-12">
-            {% include top_nav_actions.html %}
-            {% include home_lang_selector.html %}
-        </div>
-        <div class="flex items-center bg-grey-dark text-white h-12">
-            <span class="mx-2 font-light">Video Tutorials</span>
-            {% include menu_bar.html %}
-        </div>
-    </div>
-</div>
+{% include page_header.html lang_selector="home" %}
+
 {% assign home = site.data.trans.home_page %}
-<section class="bg-grey-light py-8 px-8">
+<section class="bg-grey-lightest py-8 px-8">
     <h3 class="font-normal text-4xl text-black">{{ home.banner.heading[page.lang] }}</h3>
     <p class="my-3">Here you will find tutorials and articles on using Peakboard</p>
     <p class="my-3">For technical problems contact technical support:</p>

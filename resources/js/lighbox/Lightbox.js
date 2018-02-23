@@ -18,10 +18,11 @@ export default class Lightbox {
 
   init() {
     this.createGalleryImages();
-    this.article.appendChild(this.lightbox);
     this.setDataAttributes();
     this.setControlListeners();
     this.setImageListeners();
+    this.addPageDots();
+    this.article.appendChild(this.lightbox);
   }
 
   createGalleryImages() {
@@ -33,6 +34,15 @@ export default class Lightbox {
       this.gallery_image_ids.push(index + 1);
 
       this.lightbox.appendChild(gallery_image);
+    });
+  }
+
+  addPageDots() {
+    const dots_row = this.lightbox.querySelector(".lightbox-dots");
+    this.article_images.forEach(img => {
+      const dot = document.createElement("div");
+      dot.className = "lightbox-dot";
+      dots_row.appendChild(dot);
     });
   }
 
@@ -101,6 +111,7 @@ export default class Lightbox {
     this.clearImageClasses();
 
     this.currentImage().classList.add("selected");
+    this.currentDot().classList.add("current");
 
     this.lightbox.classList.add("open");
   }
@@ -112,11 +123,19 @@ export default class Lightbox {
     return selected_image;
   }
 
+  currentDot() {
+    const dots = [].slice.call(this.lightbox.querySelectorAll(".lightbox-dot"));
+    return dots[this.current_index];
+  }
+
   clearImageClasses() {
     const gallery_images = [].slice.call(
       this.lightbox.querySelectorAll(".gallery-image")
     );
     gallery_images.forEach(gall_img => gall_img.classList.remove("selected"));
+
+    const dots = [].slice.call(this.lightbox.querySelectorAll(".lightbox-dot"));
+    dots.forEach(dot => dot.classList.remove("current"));
   }
 
   handleKeyPress(keyCode) {

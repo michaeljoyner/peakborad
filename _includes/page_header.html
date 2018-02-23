@@ -1,0 +1,21 @@
+<div class="flex h-24">
+{% capture home_link %}
+{% if page.lang == 'de' %}
+/de/
+{% else %}
+/
+{% endif %}
+{% endcapture %}
+    <div class="w-48 flex justify-center items-center bg-orange">
+        <a class="no-underline text-center" href="{{ home_link }}"><img src="/assets/logos/logo.svg" class="w-4/5"></a>
+    </div>
+    <div class="flex-auto">
+        <div class="flex items-center justify-end bg-dark-black text-white h-12">
+            {% include top_nav_actions.html %}
+            {% include {{ include.lang_selector }}_lang_selector.html %}
+        </div>
+        <div class="flex items-center bg-grey-darkest text-white h-12">
+            {% include menu_bar.html %}
+        </div>
+    </div>
+</div>

@@ -1,3 +1,10 @@
+$white: #fff;
+$black: #131516;
+$orange: #f29205;
+$red: #d31516;
+$green: #5eb109;
+$blue: #0999b1;
+
 .white {
   color: #fff;
 }
@@ -317,6 +324,30 @@ html {
     margin-left: 0;
     border: 1px solid #f2f3f4;
     border-left: 3px solid #f29205;
+    &.primary {
+      border-left: 3px solid $blue;
+      h5 {
+        color: $blue;
+      }
+    }
+    &.warning {
+      border-left: 3px solid $orange;
+      h5 {
+        color: $orange;
+      }
+    }
+    &.danger {
+      border-left: 3px solid $red;
+      h5 {
+        color: $red;
+      }
+    }
+    &.success {
+      border-left: 3px solid $green;
+      h5 {
+        color: $green;
+      }
+    }
   }
   blockquote h5 {
     font-weight: 400;

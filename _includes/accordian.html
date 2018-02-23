@@ -3,7 +3,7 @@
 
 <div class="px-4 hover:bg-white hover:text-black">
     <input type="checkbox" name="accordian_radio" id="{{ collection.label }}" class="accordian-trigger hidden">
-    <label for="{{ collection.label }}" class="py-3 pr-8 h-12 flex justify-between items-center border-b border-grey-light w-full accordian-label text-grey-dark">
+    <label for="{{ collection.label }}" class="py-3 pr-8 h-12 flex justify-between items-center w-full accordian-label text-black">
         <div class="flex items-center">
             {% include {{ collection.icon }} %}
             <span class="ml-4 capitalize">{{ collection.title[page.lang] }}</span>
@@ -19,7 +19,7 @@
         "/" | size %} {% if num_parts == 2 %}
 
         <li>
-            <a class="w-full block py-2 hover:text-orange text-grey-dark no-underline" href="{{ article.url | relative_url }}">
+            <a class="w-full block py-2 hover:text-orange text-black no-underline" href="{{ article.url | relative_url }}">
                 {{ article.title | escape }}
             </a>
         </li>
@@ -28,7 +28,7 @@
         | size %} {% if matched == 0 %} {% assign all_articles = site[collection.label] | where: "lang", page.lang %}
 
         <li>
-            <p class="py-2 font-black bg-grey-lighter text-grey-dark">
+            <p class="py-2 font-black bg-grey-lighter text-black">
                 {{ sub_level | replace: "_", " " | capitalize }}
             </p>
             <ul class="sub_level_list list-reset pl-4">
@@ -37,7 +37,7 @@
                 %} {% if num_parts == 3 and parts[1] == sub_level %}
 
                 <li>
-                    <a class="w-full block py-2 hover:text-orange text-grey-dark no-underline" href="{{ tutorial.url | relative_url }}">
+                    <a class="w-full block py-2 hover:text-orange text-black no-underline" href="{{ tutorial.url | relative_url }}">
                         {{ art.title | escape }}
                     </a>
                 </li>
