@@ -47,9 +47,9 @@ let colors = {
 
   black: "#22292f",
   "dark-black": "#111111",
-  "grey-darkest": "#4a5556",
-  "grey-darker": "#606f7b",
-  "grey-dark": "#8795a1",
+  "grey-darker": "#4a5556",
+  "grey-dark": "#606f7b",
+  "grey-darkest": "#373d3f",
   grey: "#b8c2cc",
   "grey-light": "#dae1e7",
   "grey-lighter": "#f1f5f8",
@@ -557,6 +557,7 @@ module.exports = {
   */
 
   maxWidth: {
+    xxs: "10rem",
     xs: "20rem",
     sm: "30rem",
     md: "40rem",
@@ -815,7 +816,7 @@ module.exports = {
     minHeight: ["responsive"],
     minWidth: ["responsive"],
     negativeMargin: ["responsive"],
-    opacity: ["responsive"],
+    opacity: ["responsive", "hover", "focus"],
     overflow: ["responsive"],
     padding: ["responsive"],
     pointerEvents: ["responsive"],

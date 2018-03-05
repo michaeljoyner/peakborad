@@ -5,19 +5,19 @@
 }
 
 .accordian-trigger:checked ~ .accordian-inner {
-  max-height: 30rem;
+  max-height: 40rem;
 }
 
-.accordian-trigger:checked + .accordian-label::after {
-  transform: rotate(315deg);
+.accordian-trigger:checked + .accordian-label {
+  color: orange;
 }
 
 .accordian-icon {
   transition: 0.3s;
   transform: rotate(0deg);
-  line-height: 2;
+  padding-top: 4px;
 }
 
 .accordian-trigger:checked + .accordian-label .accordian-icon {
-  transform: rotate(315deg);
+  transform: rotate(180deg);
 }

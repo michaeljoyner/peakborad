@@ -8,8 +8,17 @@ svg {
   fill: currentColor;
 }
 
+.page-header {
+  width: 100%;
+}
+
+body.stuck {
+  overflow: hidden;
+}
+
 @import "top_menu";
 @import "accordian";
 @import "article_content";
 @import "syntax_hightlighting.scss";
 @import "lightbox";
+@import "navbar";

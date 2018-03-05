@@ -68,7 +68,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(4);
+module.exports = __webpack_require__(6);
 
 
 /***/ }),
@@ -78,12 +78,19 @@ module.exports = __webpack_require__(4);
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_lighbox_Lightbox__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_menu__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__js_accordian__ = __webpack_require__(5);
+
+
 
 
 if (document.querySelector(".article-content")) {
   var lightbox = new __WEBPACK_IMPORTED_MODULE_0__js_lighbox_Lightbox__["a" /* default */](document.querySelector(".article-content"));
   lightbox.init();
 }
+
+__WEBPACK_IMPORTED_MODULE_1__js_menu__["a" /* default */].init();
+__WEBPACK_IMPORTED_MODULE_2__js_accordian__["a" /* default */].init();
 
 /***/ }),
 /* 2 */
@@ -301,6 +308,106 @@ var Lightbox = function () {
 
 /***/ }),
 /* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+  els: {
+    trigger: document.querySelector(".menu-trigger"),
+    navbar: document.querySelector(".navbar"),
+    categories: [].slice.call(document.querySelectorAll(".nav-top-link"))
+  },
+
+  isNavbarOpen: function isNavbarOpen() {
+    return this.els.navbar.classList.contains("show");
+  },
+  openNavbar: function openNavbar() {
+    document.body.classList.add("stuck");
+    this.els.navbar.classList.add("show");
+  },
+  closeNavbar: function closeNavbar() {
+    document.body.classList.remove("stuck");
+    this.closeCurrentlyOpenInnerMenus();
+    this.els.navbar.classList.remove("show");
+  },
+  toggleNavbar: function toggleNavbar() {
+    this.isNavbarOpen() ? this.closeNavbar() : this.openNavbar();
+  },
+  exposeInnerMenu: function exposeInnerMenu(inner_menu) {
+    inner_menu.classList.add("expose");
+  },
+  closeCurrentlyOpenInnerMenus: function closeCurrentlyOpenInnerMenus() {
+    var inner_menus = [].slice.call(this.els.navbar.querySelectorAll(".dropdown-list.expose"));
+    inner_menus.forEach(function (menu) {
+      return menu.classList.remove("expose");
+    });
+  },
+  handleInnerMenuClose: function handleInnerMenuClose(ev, close_button) {
+    close_button.parentNode.parentNode.classList.remove("expose");
+    ev.stopPropagation();
+  },
+  init: function init() {
+    var _this = this;
+
+    this.els.trigger.addEventListener("click", function () {
+      return _this.toggleNavbar();
+    });
+
+    this.els.categories.forEach(function (category) {
+      var category_menu = category.querySelector(".dropdown-list");
+
+      if (!category_menu) {
+        return;
+      }
+
+      var close_button = category_menu.querySelector(".inner-menu-close");
+      close_button.addEventListener("click", function (ev) {
+        return _this.handleInnerMenuClose(ev, close_button);
+      });
+
+      category.addEventListener("click", function () {
+        return _this.exposeInnerMenu(category_menu);
+      });
+    });
+  }
+});
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+  els: {
+    accordian: document.querySelector(".accordian-nav"),
+    accordian_triggers: [].slice.call(document.querySelectorAll(".accordian-trigger"))
+  },
+
+  closeCurrentlyOpenSections: function closeCurrentlyOpenSections(new_trigger) {
+    this.els.accordian_triggers.forEach(function (trigger) {
+      if (new_trigger !== trigger) {
+        trigger.checked = false;
+      }
+    });
+  },
+  init: function init() {
+    var _this = this;
+
+    if (!this.els.accordian) {
+      return;
+    }
+
+    this.els.accordian_triggers.forEach(function (accordian_trigger) {
+      accordian_trigger.addEventListener("change", function (_ref) {
+        var target = _ref.target;
+        return _this.closeCurrentlyOpenSections(target);
+      });
+    });
+  }
+});
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
