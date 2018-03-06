@@ -33,10 +33,10 @@
     position: absolute;
     top: 0;
     right: 20px;
-    font-size: 4rem;
-    font-weight: 900;
+    font-size: 3rem;
+    font-weight: 300;
     color: white;
-    cursor: default;
+    cursor: pointer;
 
     &:hover {
       color: orange;
@@ -47,13 +47,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: white;
-    font-weight: 900;
-    font-size: 3rem;
-
-    &:hover {
-      color: orange;
-    }
+    cursor: pointer;
 
     &.prev {
       left: 10px;

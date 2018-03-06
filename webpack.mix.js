@@ -24,7 +24,7 @@ mix
       path.join(__dirname, "_includes/*.html")
     ],
     extensions: ["html", "js", "md", "vue"],
-    whiteList: [".article-content blockquote.success h5"],
+    whiteList: [".article-content blockquote.success h5", "h-8"],
     whitelistPatterns: [
       /^\.article-content.*/,
       /blockquote$/,
@@ -48,7 +48,10 @@ mix
       /.*number.*/,
       /.*keyword.*/,
       /pk-lightbox/,
-      /lightbox/
+      /lightbox/,
+      /circlepath$/,
+      /topline$/,
+      /bottomline$/
     ],
     fontFace: false
   });

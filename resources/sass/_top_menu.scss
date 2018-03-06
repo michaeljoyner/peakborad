@@ -1,10 +1,16 @@
 .dropdown-list {
   top: 100%;
-  right: -50px;
+  left: 50%;
   width: 350px;
-  transform: rotateX(90deg);
+  transform: translate3d(-50%, 0, 0) rotateX(90deg);
   transition: 0.5s ease-in-out;
   transform-origin: left top;
+
+  &.righty {
+    right: 0;
+    left: auto;
+    transform: rotateX(90deg);
+  }
 }
 
 .top-menu-link:after {
@@ -19,15 +25,19 @@
   transform-origin: left top;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .top-menu-link:hover {
     &:after {
       transition: 0.4s ease-in-out;
       transform: rotateY(0deg);
     }
     .dropdown-list {
-      transform: rotateX(0deg);
+      transform: translate3d(-50%, 0, 0) rotateX(0deg);
       z-index: 999;
+
+      &.righty {
+        transform: rotateX(0deg);
+      }
     }
   }
 }

@@ -349,6 +349,10 @@ html {
       }
     }
   }
+  blockquote h1,
+  blockquote h2,
+  blockquote h3,
+  blockquote h4,
   blockquote h5 {
     font-weight: 400;
     margin-bottom: 0;
@@ -368,10 +372,15 @@ html {
     margin-bottom: 0;
   }
 
+  .image-wrapper {
+    position: relative;
+  }
+
   img {
     display: block;
     max-width: 100%;
     margin: 80px auto;
+    cursor: pointer;
   }
 
   pre {

@@ -2,7 +2,8 @@ export default {
   els: {
     trigger: document.querySelector(".menu-trigger"),
     navbar: document.querySelector(".navbar"),
-    categories: [].slice.call(document.querySelectorAll(".nav-top-link"))
+    categories: [].slice.call(document.querySelectorAll(".nav-top-link")),
+    last_menu_item: document.querySelector(".top-menu-link:last-child")
   },
 
   isNavbarOpen() {
@@ -40,6 +41,21 @@ export default {
     ev.stopPropagation();
   },
 
+  checkLatMenuItemHasSpace() {
+    const rect = this.els.last_menu_item.getBoundingClientRect();
+    const body_width = document.querySelector("body").getBoundingClientRect()
+      .width;
+    const dropdown = this.els.last_menu_item.querySelector(".dropdown-list");
+    const dropdown_width = dropdown.getBoundingClientRect().width;
+
+    const available_space = Math.floor(body_width - rect.right);
+    const needed_space = Math.floor((dropdown_width - rect.width) / 2);
+
+    if (available_space <= needed_space) {
+      dropdown.classList.add("righty");
+    }
+  },
+
   init() {
     this.els.trigger.addEventListener("click", () => this.toggleNavbar());
 
@@ -59,5 +75,7 @@ export default {
         this.exposeInnerMenu(category_menu)
       );
     });
+
+    this.checkLatMenuItemHasSpace();
   }
 };

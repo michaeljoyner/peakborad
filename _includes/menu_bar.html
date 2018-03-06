@@ -3,8 +3,8 @@
 
 {% if collection.label != "posts" %}
 
-<span class="relative px-3 h-12 top-menu-link flex items-center xl:hover:bg-white xl:hover:text-black nav-top-link">
-    <span class="font-light hover:text-orange">{{ collection.title[page.lang] }}
+<div class="relative px-3 h-12 top-menu-link flex items-center xl:hover:bg-white xl:hover:text-black nav-top-link">
+    <span class="font-light hover:text-orange tracking-wide">{{ collection.title[page.lang] }}
         <svg height="16"
              class="align-middle menu-down-caret"
              viewBox="0 0 24 24"
@@ -43,7 +43,7 @@
                     {% assign all_articles = site[collection.label] | where: "lang", page.lang %}
 
         <li>
-            <p class="py-2 font-black bg-grey-lighter text-grey-darkest pl-2">
+            <p class="py-2 pl-2 font-black bg-grey-lighter text-grey-darkest pl-2">
                 {{ sub_level | replace: "_", " " | capitalize }}
             </p>
             <ul class="sub_level_list list-reset pl-4">
@@ -73,7 +73,7 @@
     </ul>
     </div>
     
-</span>
+</div>
 
     {% endif %}
 {% endfor %}
